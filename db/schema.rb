@@ -10,7 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_06_225448) do
+ActiveRecord::Schema.define(version: 2020_01_08_051727) do
+
+  create_table "comments", force: :cascade do |t|
+    t.string "content"
+    t.string "user_id"
+    t.string "event_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "city"
+    t.string "country"
+    t.string "name"
+    t.datetime "starts_at"
+    t.string "rsvp_id"
+  end
+
+  create_table "rsvps", force: :cascade do |t|
+    t.string "user_id"
+    t.string "event_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "first_name"
