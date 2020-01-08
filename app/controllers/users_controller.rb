@@ -12,13 +12,23 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     @user.save
     session[:user_id] = @user.id
+    redirect_to user_path(@user)
   end 
 
 
   def show
-
+    #binding.pry
+    @user = User.find_by(id: params[:id])
+    render 'show'
   end 
 
+  def edit 
+    @user = User.find_by(id: params[:id])
+  end 
+
+  def update 
+    
+  end
   private 
 
   def user_params
