@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     #binding.pry
     @user = User.new(user_params)
     @user.save
+    session[:user_id] = @user.id
   end 
 
 
