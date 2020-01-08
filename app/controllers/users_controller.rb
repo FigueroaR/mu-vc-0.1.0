@@ -2,19 +2,20 @@ class UsersController < ApplicationController
   def index 
     @user = User.all
   end
+  
   def new 
     @user = User.new
   end 
 
-
   def create 
     #binding.pry
-    @user = User.new(user_params)
-    @user.save
-    session[:user_id] = @user.id
-    redirect_to user_path(@user)
+    if (@user = User.create(user_params))
+      session[:user_id] = @user.id
+      redirect_to user_path(@user)
+    else 
+      render 'new'
+    end
   end 
-
 
   def show
     #binding.pry
@@ -27,8 +28,11 @@ class UsersController < ApplicationController
   end 
 
   def update 
-    
+    @user = User.find_by(id: params[:id])
+    @user.update(user_params)
+    render 'show'
   end
+
   private 
 
   def user_params
