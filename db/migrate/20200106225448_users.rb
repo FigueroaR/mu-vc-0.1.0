@@ -5,7 +5,9 @@ class Users < ActiveRecord::Migration[6.0]
       t.string :last_name
       t.string :email
       t.string :password_digest
-      t.string :rspv_id
+
+      t.integer :rspv_id
+      t.integer :comment_id
     end
   end
 end
