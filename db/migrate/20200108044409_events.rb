@@ -5,10 +5,10 @@ class Events < ActiveRecord::Migration[6.0]
       t.string :country
       t.string :name
       t.string :content
-      t.datetime :starts_at
-
-      t.integer :rsvp_id
-      t.integer :comment_id
+      t.string :start_time
+      t.string :start_day
     end
   end
 end
+
+#t.datetime :starts_at

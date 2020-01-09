@@ -23,14 +23,13 @@ ActiveRecord::Schema.define(version: 2020_01_08_051727) do
     t.string "country"
     t.string "name"
     t.string "content"
-    t.datetime "starts_at"
-    t.integer "rsvp_id"
-    t.integer "comment_id"
+    t.string "start_time"
+    t.string "start_day"
   end
 
   create_table "rsvps", force: :cascade do |t|
-    t.string "user_id"
-    t.string "event_id"
+    t.integer "user_id"
+    t.integer "event_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -38,8 +37,6 @@ ActiveRecord::Schema.define(version: 2020_01_08_051727) do
     t.string "last_name"
     t.string "email"
     t.string "password_digest"
-    t.integer "rspv_id"
-    t.integer "comment_id"
   end
 
 end

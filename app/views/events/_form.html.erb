@@ -1,0 +1,17 @@
+<div>
+  <%= form_for @event do |f| %>
+  <%= f.label 'event name' %>
+  <%= f.text_field :name %><br>
+  <%= f.label 'event City' %>
+  <%= f.text_field :city %><br>
+  <%= f.label 'Country' %>
+  <%= f.text_field :country %><br>
+  <%= f.label 'Information' %> 
+  <%= f.text_field :content %><br>
+  <%= f.label 'Time' %>
+  <%= f.time_select :start_time %><br>
+  <%= f.label 'Date' %>
+  <%= f.date_select :start_day, :start_year=>2020  %><br>
+  <%= f.submit 'Go!' %>
+  <% end %>
+</div>

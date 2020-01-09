@@ -3,6 +3,8 @@
 <%= @user.first_name %>
 
 
-<div>
-  <%= link_to "Edit your info", edit_user_path %>
+<div class='links'>
+  <%= link_to "Edit your info", edit_user_path %><br>
+  <%= link_to "Create a new Event", new_user_event_url(current_user) %> <br>
+  <%= link_to "Log out", logout_path, method: "delete" %><br>
 </div>
