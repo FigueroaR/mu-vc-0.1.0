@@ -13,12 +13,14 @@ class SessionController < ApplicationController
   def fbcreate
     
     @user = User.find_or_create_by(uid: auth['uid']) do |u|
+      #binding.pry
       u.name = auth['info']['name']
       u.email = auth['info']['email']
+      u.password = SecureRandom.hex
     end
-    binding.pry
+    #binding.pry
     session[:user_id] = @user.id
-    render 'users/show'
+    redirect_to user_path(@user)
   end 
 
   def destroy 
