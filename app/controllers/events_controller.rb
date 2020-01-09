@@ -9,7 +9,7 @@ class EventsController < ApplicationController
 
   def create 
     binding.pry
-    @event = Event.rsvps.build(event_params)
+    @event = Event.create(event_params)
     
   end 
 
@@ -30,6 +30,6 @@ class EventsController < ApplicationController
   private 
 
   def event_params
-    params.require(:event).permit(:name, :city, :country, :start_time, :start_day, :content, :rsvp_id)
+    params.require(:event).permit(:name, :city, :country, :start_time, :start_day, :content)
   end
 end
