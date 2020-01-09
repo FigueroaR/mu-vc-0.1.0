@@ -4,10 +4,21 @@ class SessionController < ApplicationController
   end
 
   def create
-    binding.pry
+    #binding.pry
     @user = User.find_by(email: params[:email])
     session[:user_id] = @user.id
     redirect_to user_path(@user)
+  end 
+
+  def fbcreate
+    
+    @user = User.find_or_create_by(uid: auth['uid']) do |u|
+      u.name = auth['info']['name']
+      u.email = auth['info']['email']
+    end
+    binding.pry
+    session[:user_id] = @user.id
+    render 'users/show'
   end 
 
   def destroy 
