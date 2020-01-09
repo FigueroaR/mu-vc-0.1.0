@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   resources :events
 
   root 'welcome#home'
-
+  #get '/auth/facebook/' => 'session#create'
+  get '/auth/facebook/callback' => 'session#create'
   get '/signin', to: 'session#new', as: 'signin'
   post '/session', to: 'session#create', as: 'session'
   delete '/logout' => 'session#destroy'
