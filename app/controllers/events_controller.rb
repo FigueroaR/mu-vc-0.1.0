@@ -8,15 +8,15 @@ class EventsController < ApplicationController
   end 
 
   def create 
-    binding.pry
+    #binding.pry
     @event = Event.create(event_params)
     redirect_to events_path
   end 
 
   def show 
     @event = Event.find_by(id: params[:id])
-    @users = @event.users.distinct 
-    @comment = @event.comments.build
+    #@users = @event.users.all
+    #@comment = @event.comments.build
   end
 
   def edit 
