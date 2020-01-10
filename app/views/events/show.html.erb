@@ -7,8 +7,21 @@
     Time: <%= @event.start_time%><br>
     Info: <%= @event.content%>
   </p>
+</div><br>
+<hr>
+<div>
+  <%= form_for @rsvp do |f| %>
+      <%= f.hidden_field :event_id, value: @event.id %>
+      <%= f.label "Rsvp:"%><br>
+      <%#= f.check_box_tag :rsvp %><br>
+      <%= f.collection_select :user_id, User.all, :id, :name, include_blank: "Choose Your Username" %><br><br>
+          <%#= f.fields_for :user, @comment.build_user do |u| %>
+            <%#= u.label "New Username:"%>
+            <%#= u.text_field :username %>
+          <%# end %>
+      <%= f.submit %>
+  <% end %>
 </div>
-<br>
 <hr>
 <div>
   <h3>Comments:</h3>
@@ -31,11 +44,12 @@
           <%# end %>
       <%= f.submit %>
   <% end %>
-</div>  
+</div><br>
 <hr>
-<br>
+
+<hr>
 <div>
-  <%= link_to 'RSVP', rsvp_create_path %>
-  <%= link_to "All Events", events_path %>
+  <%= link_to 'RSVP', rsvp_create_path %> |
+  <%= link_to "All Events", events_path %> |
   <%= link_to "Delete", delete_event_path, method: "delete" %><br>
 </div> 

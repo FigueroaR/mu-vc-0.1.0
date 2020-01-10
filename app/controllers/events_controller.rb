@@ -16,10 +16,10 @@ class EventsController < ApplicationController
   def show 
     @event = Event.find_by(id: params[:id])
     #@users = @post.users.distinct 
-    #@users = @event.users.all
-    @comments = @event.comments.all
-    @comment = @event.comments.build
+    @rsvp = @event.rsvps.build
     
+    @comment = @event.comments.build
+    @comments = @event.comments.all
   end
 
   def edit 
@@ -37,6 +37,7 @@ class EventsController < ApplicationController
     @event.destroy 
     redirect_to events_path
   end
+
   private 
 
   def event_params

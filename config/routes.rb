@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       # :show, :edit, :destroy]
   end 
   resources :comments
-  #resources :rsvps, only: [:create]
+  resources :rsvps
   get '/rsvp/create' => 'rsvps#create'
   
   resources :events, only: [:show, :edit, :index, :create, :new]

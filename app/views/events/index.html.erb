@@ -1,9 +1,10 @@
 <h1> Pick an Event you would like to attend </h1><br>
 <br>
-<%= link_to 'Add event', new_event_path %>
+
+<%= link_to 'Add event', new_event_path %> | 
 <%= link_to 'My home', user_path(current_user) %>
 
 <hr>
 <% @events.each do |e| %>
-  <%= link_to e.name, event_path(e)%>
+  <%= link_to e.name, event_path(e)%><br>
 <%end%>
