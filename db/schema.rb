@@ -16,6 +16,8 @@ ActiveRecord::Schema.define(version: 2020_01_08_051727) do
     t.string "content"
     t.integer "user_id"
     t.integer "event_id"
+    t.index ["event_id"], name: "index_comments_on_event_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "events", force: :cascade do |t|
@@ -28,6 +30,7 @@ ActiveRecord::Schema.define(version: 2020_01_08_051727) do
   end
 
   create_table "rsvps", force: :cascade do |t|
+    t.datetime "created_at"
     t.integer "user_id"
     t.integer "event_id"
   end

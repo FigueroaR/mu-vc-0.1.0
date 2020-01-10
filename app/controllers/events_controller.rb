@@ -10,11 +10,12 @@ class EventsController < ApplicationController
   def create 
     binding.pry
     @event = Event.create(event_params)
-    
   end 
 
   def show 
     @event = Event.find_by(id: params[:id])
+    @users = @event.users.distinct 
+    @comment = @event.comments.build
   end
 
   def edit 
