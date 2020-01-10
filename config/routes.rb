@@ -2,9 +2,14 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   resources :users do 
-    resources :events, only: [:new]
+    resources :events, only: [:new, :show, :edit, :destroy]
   end 
-  resources :events
+
+  #resources :users do 
+    #resources :rsvps, only: [:index]
+  #end 
+  
+  resources :events, only: [:index]
 
   root 'welcome#home'
   get '/auth/facebook/callback' => 'session#fbcreate'
@@ -13,5 +18,4 @@ Rails.application.routes.draw do
   delete '/logout' => 'session#destroy'
   get '/logout' => 'session#destroy'
 
-  
 end
