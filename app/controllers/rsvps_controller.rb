@@ -1,9 +1,5 @@
 class RsvpsController 
 
-  def new 
-    @rsvp = Rsvp.new
-  end 
-
   def create 
     binding.pry
     rsvp = Comment.create(rsvp_params)

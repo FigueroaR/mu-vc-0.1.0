@@ -15,10 +15,6 @@
       <%= f.label "Rsvp:"%><br>
       <%#= f.check_box_tag :rsvp %><br>
       <%= f.collection_select :user_id, User.all, :id, :name, include_blank: "Choose Your Username" %><br><br>
-          <%#= f.fields_for :user, @comment.build_user do |u| %>
-            <%#= u.label "New Username:"%>
-            <%#= u.text_field :username %>
-          <%# end %>
       <%= f.submit %>
   <% end %>
 </div>
