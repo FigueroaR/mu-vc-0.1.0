@@ -7,6 +7,25 @@
 <%= @event.start_time%><br>
 <%= @event.content%>
 </p>
+<br>
+<hr>
 
+<%= form_for @comment do |f| %>
+    <%= f.hidden_field :event_id, value: @event.id %>
+    <%= f.label "Leave a comment:"%><br>
+    <%= f.text_area :content %><br>
+        <%#= f.collection_select :user_id, User.all, :id, :username, include_blank: "Choose Your Username" %><br><br>
+        <%#= f.fields_for :user, @comment.build_user do |u| %>
+          <%#= u.label "New Username:"%><br>
+          <%#= u.text_field :username %><br><br>
+        <%# end %>
+    <%= f.submit %>
+<% end %>
+  
+
+
+<hr>
+<br> 
+<%= link_to 'RSVP', rsvp_create_path %>
 <%= link_to "All Events", events_path %>
 <%= link_to "Delete", delete_event_path, method: "delete" %><br>

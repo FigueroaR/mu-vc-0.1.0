@@ -5,10 +5,9 @@ Rails.application.routes.draw do
     resources :events, only: [:new]
       # :show, :edit, :destroy]
   end 
-
-  #resources :users do 
-    #resources :rsvps, only: [:index]
-  #end 
+  resources :comments
+  #resources :rsvps, only: [:create]
+  get '/rsvp/create' => 'rsvps#create'
   
   resources :events, only: [:show, :edit, :index, :create, :new]
   delete '/event/:id', to: 'events#destroy'

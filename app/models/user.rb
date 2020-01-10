@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   #associations
   has_many :rsvps
   has_many :events, through: :rsvps
-
+  
   has_many :comments
   
 end 

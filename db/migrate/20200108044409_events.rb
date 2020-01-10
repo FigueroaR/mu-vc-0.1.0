@@ -7,6 +7,7 @@ class Events < ActiveRecord::Migration[6.0]
       t.string :content
       t.string :start_time
       t.string :start_day
+      t.integer :user_id
     end
   end
 end

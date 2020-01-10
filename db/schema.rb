@@ -27,12 +27,15 @@ ActiveRecord::Schema.define(version: 2020_01_08_051727) do
     t.string "content"
     t.string "start_time"
     t.string "start_day"
+    t.integer "user_id"
   end
 
   create_table "rsvps", force: :cascade do |t|
     t.datetime "created_at"
     t.integer "user_id"
     t.integer "event_id"
+    t.index ["event_id"], name: "index_rsvps_on_event_id"
+    t.index ["user_id"], name: "index_rsvps_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
