@@ -1,11 +1,11 @@
 <h1><%= @event.name %></h1>
 <div>
   <p>
-    <%= @event.city%><br>
-    <%= @event.country %><br>
-    <%= @event.start_day%><br>
-    <%= @event.start_time%><br>
-    <%= @event.content%>
+    City: <%= @event.city%><br>
+    Country: <%= @event.country %><br>
+    Date: <%= @event.start_day%><br>
+    Time: <%= @event.start_time%><br>
+    Info: <%= @event.content%>
   </p>
 </div>
 <br>
@@ -26,8 +26,8 @@
       <%= f.text_area :content %><br>
       <%= f.collection_select :user_id, User.all, :id, :name, include_blank: "Choose Your Username" %><br><br>
           <%#= f.fields_for :user, @comment.build_user do |u| %>
-            <%#= u.label "New Username:"%><br>
-            <%#= u.text_field :username %><br><br>
+            <%#= u.label "New Username:"%>
+            <%#= u.text_field :username %>
           <%# end %>
       <%= f.submit %>
   <% end %>
