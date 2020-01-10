@@ -1,8 +1,8 @@
 class CommentsController < ApplicationController 
   def create
     comment = Comment.create(comment_params)
-    binding.pry
-    #redirect_to comment.event
+    #binding.pry
+    redirect_to comment.event
   end
 
   private
