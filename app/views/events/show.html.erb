@@ -1,4 +1,12 @@
-<h1>Here we show the Event</h1>
+<h1><%= @event.name %></h1>
+<p>
+
+<%= @event.city%><br>
+<%= @event.country %><br>
+<%= @event.start_day%><br>
+<%= @event.start_time%><br>
+<%= @event.content%>
+</p>
 
 
-
+<%= link_to "Delete", delete_event_path, method: "delete" %><br>

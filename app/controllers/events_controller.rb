@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   def index 
-    @event = Event.all
+    @events = Event.all
   end
 
   def new 
@@ -10,6 +10,7 @@ class EventsController < ApplicationController
   def create 
     binding.pry
     @event = Event.create(event_params)
+    redirect_to events_path
   end 
 
   def show 
@@ -28,6 +29,11 @@ class EventsController < ApplicationController
     redirect_to event_path(@event)
   end
 
+  def destroy
+    @event = Event.find_by(id: params[:id])
+    @event.destroy 
+    redirect_to events_path
+  end
   private 
 
   def event_params
