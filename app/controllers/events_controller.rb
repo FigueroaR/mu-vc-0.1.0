@@ -16,7 +16,8 @@ class EventsController < ApplicationController
   def show 
     @event = Event.find_by(id: params[:id])
     #@users = @post.users.distinct 
-    @users = @event.users.all
+    #@users = @event.users.all
+    @comments = @event.comments.all
     @comment = @event.comments.build
     
   end

@@ -1,40 +1,41 @@
 <h1><%= @event.name %></h1>
-<p>
-
-<%= @event.city%><br>
-<%= @event.country %><br>
-<%= @event.start_day%><br>
-<%= @event.start_time%><br>
-<%= @event.content%>
-</p>
+<div>
+  <p>
+    <%= @event.city%><br>
+    <%= @event.country %><br>
+    <%= @event.start_day%><br>
+    <%= @event.start_time%><br>
+    <%= @event.content%>
+  </p>
+</div>
 <br>
 <hr>
-<h3>Comments:</h3>
-<% @users.each do |user| %>
-    <%= link_to user.name, user_path(user) %> says: <br>
-    <% user.comments.each do |comment|%>
-    <%= comment.content %><br>
+<div>
+  <h3>Comments:</h3>
+  <% @comments.each do |comment| %>
+      <%#= binding.pry %>
+      <%= comment.user.name %>:
+      <%= comment.content %><br>
   <% end %>
-  <br><br>
-<% end %>
-
+</div>
 <hr>
-<%= form_for @comment do |f| %>
-    <%= f.hidden_field :event_id, value: @event.id %>
-    <%= f.label "Leave a comment:"%><br>
-    <%= f.text_area :content %><br>
-    <%= f.collection_select :user_id, User.all, :id, :name, include_blank: "Choose Your Username" %><br><br>
-        <%#= f.fields_for :user, @comment.build_user do |u| %>
-          <%#= u.label "New Username:"%><br>
-          <%#= u.text_field :username %><br><br>
-        <%# end %>
-    <%= f.submit %>
-<% end %>
-  
-
-
+<div>
+  <%= form_for @comment do |f| %>
+      <%= f.hidden_field :event_id, value: @event.id %>
+      <%= f.label "Leave a comment:"%><br>
+      <%= f.text_area :content %><br>
+      <%= f.collection_select :user_id, User.all, :id, :name, include_blank: "Choose Your Username" %><br><br>
+          <%#= f.fields_for :user, @comment.build_user do |u| %>
+            <%#= u.label "New Username:"%><br>
+            <%#= u.text_field :username %><br><br>
+          <%# end %>
+      <%= f.submit %>
+  <% end %>
+</div>  
 <hr>
-<br> 
-<%= link_to 'RSVP', rsvp_create_path %>
-<%= link_to "All Events", events_path %>
-<%= link_to "Delete", delete_event_path, method: "delete" %><br>
+<br>
+<div>
+  <%= link_to 'RSVP', rsvp_create_path %>
+  <%= link_to "All Events", events_path %>
+  <%= link_to "Delete", delete_event_path, method: "delete" %><br>
+</div> 
