@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  skip_before_action :verified_user, only: [:new, :create]
   def index 
     @user = User.all
   end
