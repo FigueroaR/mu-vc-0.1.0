@@ -9,8 +9,13 @@ class EventsController < ApplicationController
 
   def create 
     #binding.pry
-    @event = Event.create(event_params)
-    redirect_to events_path
+    @event = Event.new(event_params)
+    if @event.valid?
+      @event.save
+      redirect_to events_path
+    else 
+      render 'new'
+    end
   end 
 
   def show 
