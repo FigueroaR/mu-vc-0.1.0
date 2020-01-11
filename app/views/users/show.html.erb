@@ -1,4 +1,4 @@
-<h1>Welcome: <%= @user.name %></h1>
+<h1 align="center" >Welcome:  <%=  @user.name %></h1>
 
 
 <hr>
@@ -13,9 +13,10 @@ My events
 
 
 <hr>
-<div>
-  <%= link_to "Create a new Event", new_user_event_url(current_user) %> <br>
+<div >
   <%= link_to "All events", events_path %> <br>
+  <%= link_to "Create a new Event", new_user_event_url(current_user) %> <br>
+  
 </div>
 <hr>
 <div class='links'>
