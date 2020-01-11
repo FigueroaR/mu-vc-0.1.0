@@ -5,6 +5,7 @@
 <%= link_to 'My home', user_path(current_user) %>
 
 <hr>
+<br>
 <% @events.each do |e| %>
-  <%= link_to e.name, event_path(e)%><br>
+  <li><%= link_to e.name, event_path(e)%><br><br></li>
 <%end%>

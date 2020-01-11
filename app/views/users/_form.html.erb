@@ -1,27 +1,42 @@
 <h2>Provide User Information</h2>
 
 <div>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h3><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h3>
-        <ul>
-          <% @user.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
+  <div>
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <h3><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h3>
+          <ul>
+            <% @user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+      </div>
+    <% end %>
+  </div>
+
+
+  <div>
+    <%= form_for @user do |f| %>
+
+    <div class="form-group">
+    <%= f.label 'Name' %>
+    <%= f.text_field :name, class: "form-control"   %><br>
     </div>
-  <% end %>
-</div>
 
+    <div class="form-group">
+    <%= f.label 'email' %>
+    <%= f.text_field :email, class: "form-control"   %><br>
+    </div>
 
-<div>
-  <%= form_for @user do |f| %>
-  <%= f.label 'Name' %>
-  <%= f.text_field :name %><br>
-  <%= f.label 'email' %>
-  <%= f.text_field :email %><br>
-  <%= f.label 'password' %> 
-  <%= f.text_field :password %><br>
-  <%= f.submit 'Go!' %>
-  <% end %>
+    <div class="form-group">
+    <%= f.label 'password' %> 
+    <%= f.text_field :password, class: "form-control"   %><br>
+    </div>
+
+    <div class="actions">
+    <%= f.submit class: "btn btn-primary"  %>
+    </div>
+
+    <% end %>
+  </div>
 </div>
