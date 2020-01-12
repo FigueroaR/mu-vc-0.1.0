@@ -1,11 +1,14 @@
 <h1 align="center"> Events </h1><br>
-<br>
-<hr>
-<%= link_to 'Add event', new_event_path %> | 
-<%= link_to 'My home', user_path(current_user) %>
 
-<hr>
-<br>
-<% @events.each do |e| %>
-  <li><%= link_to e.name, event_path(e)%><br><br></li>
-<%end%>
+  <br>
+  <hr>
+  <%= link_to 'Add event', new_event_path %> | 
+  <%= link_to 'My home', user_path(current_user) %>
+
+  <hr>
+  <br>
+ 
+  <% @events.each do |e| %>
+  <li><%= link_to e.name, event_path(e)%><br></li>
+  <%end%>
+  

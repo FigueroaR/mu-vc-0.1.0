@@ -5,9 +5,8 @@ class Events < ActiveRecord::Migration[6.0]
       t.string :country
       t.string :name
       t.string :content
-      t.string :start_time
-      t.string :start_day
-      t.integer :user_id
+      t.datetime :start_time
+      t.datetime :start_day
     end
   end
 end

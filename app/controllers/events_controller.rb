@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  skip_before_action :verified_user, only: [:new, :create, :edit]
   def index 
     @events = Event.all
   end

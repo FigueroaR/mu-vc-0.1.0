@@ -3,8 +3,8 @@
   <p>
     City: <%= @event.city%><br>
     Country: <%= @event.country %><br>
-    Date: <%= @event.start_day%><br>
-    Time: <%= @event.start_time%><br>
+    Date: <%= @event.start_day.strftime("%Y, %B %d")%><br>
+    Time: <%= @event.start_time.strftime("%I %m %p")%><br>
     Info: <%= @event.content%>
   </p>
 </div><br>
@@ -38,14 +38,14 @@
             <%#= u.label "New Username:"%>
             <%#= u.text_field :username %>
           <%# end %>
-      <%= f.submit %>
+          <button type="button" class="btn btn-primary"><%= f.submit %></button>
   <% end %>
 </div><br>
 <hr>
 
 <hr>
 <div>
-  <%= link_to 'RSVP', rsvp_create_path %> |
-  <%= link_to "All Events", events_path %> |
-  <%= link_to "Delete", delete_event_path, method: "delete" %><br>
+  <button type="button" class="btn btn-primary"><%= link_to 'RSVP', rsvp_create_path %></button> |
+  <button type="button" class="btn btn-primary"><%= link_to "All Events", events_path %></button> |
+  <button type="button" class="btn btn-primary"><%= link_to "Delete", delete_event_path, method: "delete" %></button><br>
 </div> 

@@ -25,9 +25,8 @@ ActiveRecord::Schema.define(version: 2020_01_08_051727) do
     t.string "country"
     t.string "name"
     t.string "content"
-    t.string "start_time"
-    t.string "start_day"
-    t.integer "user_id"
+    t.datetime "start_time"
+    t.datetime "start_day"
   end
 
   create_table "rsvps", force: :cascade do |t|

@@ -27,7 +27,8 @@
 .btn-primary {
   color: #fff;
   background-color: #b60e0e;
-  border-color: #b11212;
+  border-color: #b11212;  
+  text-decoration: none;
 }
 
 .btn {
@@ -49,6 +50,7 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  text-decoration: none;
 }
 
 div {
@@ -82,4 +84,12 @@ div {
   border: 1px solid #ccc;
   border-radius: 4px;
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+.table {
+  border: 1px solid black;
+  display: table;
+  border-collapse: separate;
+  border-spacing: 2px;
+  border-color: gray;
 }
