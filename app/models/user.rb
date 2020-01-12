@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true
 
   #associations
+  has_one_attached :photo
   has_many :rsvps
   has_many :events, through: :rsvps
   

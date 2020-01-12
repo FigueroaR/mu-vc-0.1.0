@@ -1,13 +1,15 @@
 <h1><%= @event.name %></h1>
-<div>
-  <p>
-    City: <%= @event.city%><br>
-    Country: <%= @event.country %><br>
-    Date: <%= @event.start_day.strftime("%Y, %B %d")%><br>
-    Time: <%= @event.start_time.strftime("%I %m %p")%><br>
-    Info: <%= @event.content%>
-  </p>
-</div><br>
+
+  <div>
+    <p>
+      City: <%= @event.city%><br>
+      Country: <%= @event.country %><br>
+      Date: <%= @event.start_day.strftime("%Y, %B %d")%><br>
+      Time: <%= @event.start_time.strftime("%I %m %p")%><br>
+      Info: <%= @event.content%>
+    </p>
+  </div>
+<br>
 <hr>
 <div>
   <%= form_for @rsvp do |f| %>
