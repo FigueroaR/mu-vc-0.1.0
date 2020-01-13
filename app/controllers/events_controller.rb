@@ -28,7 +28,7 @@ class EventsController < ApplicationController
     #comments
     @comment = @event.comments.build
     @comments = @event.comments.all
-    if @event.admin = current_user.id
+    if 
       render 'adminshow'
     else 
       render 'show'

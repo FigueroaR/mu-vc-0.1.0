@@ -16,7 +16,4 @@ class Event < ActiveRecord::Base
     self.user = User.find_or_create_by(name: user_attributes[:name]) unless user_attributes[:name].blank?
   end
 
-  def admin 
-    self.admin == curren_user.id
-  end 
 end
