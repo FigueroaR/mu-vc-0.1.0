@@ -15,7 +15,7 @@
 
 <div>
   <%= form_for @event do |f| %>
-  <%= f.hidden_field :admin_id, value: current_user.id %>
+  <%= f.hidden_field :admin, value: current_user.id %>
 
   <div class="form-group"> 
   <%= f.label 'event name' %>

@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2020_01_13_190437) do
     t.string "content"
     t.datetime "start_time"
     t.datetime "start_day"
-    t.integer "admin_id"
+    t.integer "admin"
   end
 
   create_table "rsvps", force: :cascade do |t|
