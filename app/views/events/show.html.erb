@@ -12,11 +12,19 @@
 <br>
 <hr>
 <div>
+    <h3>Attending</h3>
+    <% @attending.each do |r| %>
+        <%#binding.pry %>
+        <%= link_to r.user.name, user_path(r.user) %>
+    <%end%> 
+</div><br><br>
+<div>
   <%= form_for @rsvp do |f| %>
       <%= f.hidden_field :event_id, value: @event.id %>
+      <%= f.hidden_field :created_at, value: Time.now %>
       <%= f.label "Rsvp:"%><br>
-      <%#= f.check_box_tag :rsvp %><br>
-      <%= f.collection_select :user_id, User.all, :id, :name, include_blank: "Choose Your Username" %><br><br>
+      <%= f.check_box :attending %><br>
+      <%= f.collection_select :user_id, User.all , :id, :name, include_blank: "Choose Your Username" %><br><br>
       <%= f.submit %>
   <% end %>
 </div>
@@ -29,17 +37,13 @@
       <%= comment.content %><br>
   <% end %>
 </div>
-<hr>
+<br><br>
 <div>
   <%= form_for @comment do |f| %>
       <%= f.hidden_field :event_id, value: @event.id %>
       <%= f.label "Leave a comment:"%><br>
       <%= f.text_area :content %><br>
       <%= f.collection_select :user_id, User.all, :id, :name, include_blank: "Choose Your Username" %><br><br>
-          <%#= f.fields_for :user, @comment.build_user do |u| %>
-            <%#= u.label "New Username:"%>
-            <%#= u.text_field :username %>
-          <%# end %>
           <button type="button" class="btn btn-primary"><%= f.submit %></button>
   <% end %>
 </div><br>

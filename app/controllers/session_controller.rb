@@ -19,7 +19,7 @@ class SessionController < ApplicationController
       u.password = SecureRandom.hex
     end
     session[:user_id] = @user.id
-    render "users/oshow"
+    redirect_to user_path(@user)
   end 
 
   def destroy 
