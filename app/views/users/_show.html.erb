@@ -1,0 +1,15 @@
+
+
+  <img  style='width: 400px' src="<%=@user.image%>">
+  <div style="width:400x; height:auto">
+    <%= image_tag(@user.photo, style:"with:100%") if @user.photo.attached? %>
+  </div>
+
+<h1 align="center"> <%=  @user.name %></h1>
+
+<div>
+  <h3>Events im attending</h3>
+  <% @user.rsvps.each do |r| %>
+    <li><%= link_to r.event.name, event_path(r.event)%></li>
+  <% end %>
+</div>

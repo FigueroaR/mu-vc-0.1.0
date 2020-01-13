@@ -23,7 +23,11 @@ class UsersController < ApplicationController
   def show
     #binding.pry
     @user = User.find_by(id: params[:id])
-    render 'show'
+    if @user.id == current_user.id 
+      render 'show'
+    else
+      render 'theirprofile'
+    end
   end 
 
   def edit 

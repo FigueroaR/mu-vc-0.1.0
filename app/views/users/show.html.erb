@@ -1,23 +1,4 @@
-
-
-  <img  style='width: 400px' src="<%=@user.image%>">
-  <div style="width:400x; height:auto">
-    <%= image_tag(@user.photo, style:"with:100%") if @user.photo.attached? %>
-  </div>
-
-<h1 align="center"> <%=  @user.name %></h1>
-
-<hr>
-  <div>
-  <p>
-  Rsvps
-  </p>
-
-  <p>
-  My events
-  </p>
-</div>
-
+<%= render 'show' %>
 <hr>
   <div >
     <%= link_to "All events", events_path %> <br>
