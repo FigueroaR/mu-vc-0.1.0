@@ -20,7 +20,7 @@ class EventsController < ApplicationController
   end 
 
   def show 
-    binding.pry
+    #binding.pry
     @event = Event.find_by(id: params[:id])
     #rsvp
     @rsvp = @event.rsvps.build

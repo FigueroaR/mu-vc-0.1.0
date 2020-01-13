@@ -1,4 +1,4 @@
-class Event < ActiveRecord::Base 
+class Event < ApplicationRecord 
   #accepts_nested_attributes_for :rsvps, reject_if: :all_blank
 
   validates :name, presence: :true

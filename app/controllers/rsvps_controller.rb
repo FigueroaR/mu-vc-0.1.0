@@ -1,7 +1,7 @@
 class RsvpsController < ApplicationController
 
   def create 
-    binding.pry
+    #binding.pry
     rsvp = Rsvp.create(rsvp_params)
     
     redirect_to event_url(rsvp.event.id)
