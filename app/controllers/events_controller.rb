@@ -20,7 +20,7 @@ class EventsController < ApplicationController
   end 
 
   def show 
-    #binding.pry
+    binding.pry
     @event = Event.find_by(id: params[:id])
     #rsvp
     @rsvp = @event.rsvps.build
@@ -28,7 +28,7 @@ class EventsController < ApplicationController
     #comments
     @comment = @event.comments.build
     @comments = @event.comments.all
-    if 
+    if @event.admin == current_user.id
       render 'adminshow'
     else 
       render 'show'
