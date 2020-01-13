@@ -9,7 +9,7 @@ class EventsController < ApplicationController
   end 
 
   def create 
-    binding.pry
+    #binding.pry
     @event = Event.new(event_params)
     if @event.valid?
       @event.save
@@ -20,14 +20,19 @@ class EventsController < ApplicationController
   end 
 
   def show 
+    #binding.pry
     @event = Event.find_by(id: params[:id])
-
     #rsvp
     @rsvp = @event.rsvps.build
     @attending = @event.rsvps.all
     #comments
     @comment = @event.comments.build
     @comments = @event.comments.all
+    if @event.admin = current_user.id
+      render 'adminshow'
+    else 
+      render 'show'
+    end 
   end
 
   def edit 

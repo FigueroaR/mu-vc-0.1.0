@@ -55,7 +55,6 @@ ActiveRecord::Schema.define(version: 2020_01_13_190437) do
     t.datetime "created_at"
     t.integer "user_id"
     t.integer "event_id"
-    t.boolean "attending"
     t.index ["event_id"], name: "index_rsvps_on_event_id"
     t.index ["user_id"], name: "index_rsvps_on_user_id"
   end
