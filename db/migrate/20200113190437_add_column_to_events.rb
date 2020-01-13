@@ -1,5 +1,5 @@
 class AddColumnToEvents < ActiveRecord::Migration[6.0]
   def change
-    add_column :rsvps, :attending, :boolean
+    add_column :events, :admin_id, :interger
   end
 end
