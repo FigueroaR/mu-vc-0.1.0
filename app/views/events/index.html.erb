@@ -8,13 +8,13 @@
   <hr>
   <br>
 <p>
-    <h3>Upcoming Events</h3>
+  <h3>Upcoming Events</h3>
     <% @coming.all.each do |e| %>
-    <li><%= link_to e.name, event_path(e)%><br></li>
+      <li><%= link_to e.name, event_path(e)%><br></li>
     <%end%>
     
-    <h3>Past Events</h3>
+  <h3>Past Events</h3>
     <% @past.all.each do |e| %>
-    <li><%= link_to e.name, event_path(e)%><br></li>
+      <li><%= link_to e.name, event_path(e)%><br></li>
     <%end%>
 </p>
