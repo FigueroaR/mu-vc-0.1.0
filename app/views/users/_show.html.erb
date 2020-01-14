@@ -8,8 +8,8 @@
 <h1 align="center"> <%=  @user.name %></h1>
 <hr>
 <div>
-  <h3>Events im attending</h3>
+  <h3>Events</h3>
   <% @user.rsvps.each do |r| %>
-    <li><%= link_to r.event.name, event_path(r.event)%></li>
+    <li> <%=r.event.start_day.strftime("%Y, %B %d")%>,      <%= link_to r.event.name, event_path(r.event)%></li>
   <% end %>
 </div>

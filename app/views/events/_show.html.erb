@@ -15,7 +15,7 @@
     <h3>Attending</h3>
     <% @attending.each do |r| %>
         <%#binding.pry %>
-        <%= link_to r.user.name, user_path(r.user) %>
+        <li><%= link_to r.user.name, user_path(r.user) %><br></li>
     <%end%> 
 </div><br><br>
 <div>

@@ -1,14 +1,12 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-
+  resources :comments
+  resources :rsvps
   resources :users do 
     resources :events, only: [:new]
       # :show, :edit, :destroy]
   end 
-  resources :comments
-  resources :rsvps
-  get '/rsvp/create' => 'rsvps#create'
-  
+
   resources :events, only: [:show, :edit, :index, :create, :new, :update]
   delete '/event/:id', to: 'events#destroy'
   get '/event/:id', to: 'events#destroy', as: 'delete_event'
