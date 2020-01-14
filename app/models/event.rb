@@ -1,6 +1,6 @@
 class Event < ApplicationRecord 
-  #accepts_nested_attributes_for :rsvps, reject_if: :all_blank
-
+  
+  #validations
   validates :name, presence: :true
   validates :city, presence: :true
   validates :country, presence: :true
@@ -10,6 +10,11 @@ class Event < ApplicationRecord
   has_many :users, through: :rsvps
 
   has_many :comments
+
+  #scopes 
+  scope :upcoming_events, -> (time) {where( "start_day > ?", time)}
+  scope :previous_events, -> (time) {where( "start_day < ?", time)}
+
 
   def user_attributes=(user_attributes)
     #binding.pry

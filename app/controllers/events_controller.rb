@@ -1,7 +1,9 @@
 class EventsController < ApplicationController
   skip_before_action :verified_user, only: [:new, :create, :edit]
   def index 
-    @events = Event.all
+    #Scoped event <- methods are in models, they need the current time as an argument
+    @past = Event.previous_events(Time.zone.now)
+    @coming = Event.upcoming_events(Time.zone.now)
   end
 
   def new 
