@@ -4,6 +4,7 @@ class EventsController < ApplicationController
     #Scoped event <- methods are in models, they need the current time as an argument
     @past = Event.previous_events(Time.zone.now)
     @coming = Event.upcoming_events(Time.zone.now)
+    
   end
 
   def new 
