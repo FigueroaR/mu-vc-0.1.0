@@ -1,15 +1,24 @@
 
-
+<div>
   <img  style='width: 400px' src="<%=@user.image%>">
   <div style="width:400x; height:auto">
     <%= image_tag(@user.photo, style:"with:100%") if @user.photo.attached? %>
   </div>
-
+</div>
 <h1 align="center"> <%=  @user.name %></h1>
 <hr>
 <div>
-  <h3>Events</h3>
+  <h3>Rsvps</h3>
   <% @user.rsvps.each do |r| %>
+    <%#= binding.pry %>
     <li> <%=r.event.start_day.strftime("%Y, %B %d")%>,      <%= link_to r.event.name, event_path(r.event)%></li>
+  <% end %>
+</div>
+
+<div>
+  <h3>My events</h3>
+  <% @user.events.each do |e| %>
+    
+    <li> <%=e.start_day.strftime("%Y, %B %d")%>,      <%= link_to e.name, event_path(e)%></li>
   <% end %>
 </div>

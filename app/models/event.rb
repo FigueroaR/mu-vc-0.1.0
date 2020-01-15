@@ -6,6 +6,7 @@ class Event < ApplicationRecord
   validates :country, presence: :true
   validates :content, presence: :true
   #associations
+  #belongs_to :user
   has_many :rsvps
   has_many :users, through: :rsvps
 
@@ -14,7 +15,7 @@ class Event < ApplicationRecord
   #scopes 
   scope :upcoming_events, -> (time) {where( "start_day > ?", time)}
   scope :previous_events, -> (time) {where( "start_day < ?", time)}
-
+  scope :my_events, -> (id) {where( "admin == ?", id)}
 
   def user_attributes=(user_attributes)
     #binding.pry

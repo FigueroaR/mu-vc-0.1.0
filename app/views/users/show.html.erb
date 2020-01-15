@@ -1,10 +1,9 @@
 <%= render 'show' %>
 <hr>
-  <div >
-    <%#= link_to "My Events", user_events_url(@user) %> <br>
+  <div>
+    <%= link_to "My events", myindex_path %> <br>
     <%= link_to "All events", events_path %> <br>
-    <%= link_to "Create a new Event", new_user_event_url(current_user) %> <br>
-    
+    <%= link_to "Create a new Event", new_user_event_path(current_user) %> <br>
   </div>
 <hr>
   <div class='links'>

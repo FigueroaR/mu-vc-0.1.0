@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   resources :comments
   resources :rsvps
   resources :users do 
-    resources :events, only: [:new, :edit ]
+    resources :events, only: [:new, :edit, :index ]
   end 
-
+  get '/events/myevents', to: "events#myindex", as: 'myindex'
   resources :events, only: [:show, :index, :create, :update ]
 
   delete '/event/:id', to: 'events#destroy'
