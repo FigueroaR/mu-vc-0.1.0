@@ -18,7 +18,7 @@
   <div>
     <%= form_for @user do |f| %>
 
-    <div class="form-group" class="field<%= ' field_with_errors' if @user.errors[:name].any? %>">
+    <div class="form-group">">
     <%= f.label 'Name' %>
     <%= f.text_field :name, class: "form-control"   %><br>
     </div>

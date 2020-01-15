@@ -12,6 +12,8 @@ class Event < ApplicationRecord
 
   has_many :comments
 
+  has_one_attached :photo
+
   #scopes 
   scope :upcoming_events, -> (time) {where( "start_day > ?", time)}
   scope :previous_events, -> (time) {where( "start_day < ?", time)}

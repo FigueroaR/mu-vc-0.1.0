@@ -1,5 +1,10 @@
-<h1><%= @event.name %></h1>
+<div align="center">
+    <div style="width:100x; height:auto">
+      <%= image_tag(@event.photo, style:"with:100%") if @event.photo.attached? %>
+    </div>
 
+    <h1><%= @event.name %></h1>
+</div>
   <div>
     <p>
       City: <%= @event.city%><br>

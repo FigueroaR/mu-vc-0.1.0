@@ -48,6 +48,11 @@
   <%= f.date_select :start_day, :start_year=>2000  %><br><br>
   </div>
 
+  <div class="form-group">
+    <%=f.label "photo" %><br>
+    <%=f.file_field :photo %><br><br>
+  </div>
+  
   <div class="actions">
   <%= f.submit class: "btn btn-primary" %>
   </div>
