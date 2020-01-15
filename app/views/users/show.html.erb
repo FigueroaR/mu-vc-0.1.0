@@ -2,7 +2,7 @@
 <hr>
   <div>
     <%= link_to "My events", myindex_path %> <br>
-    <%= link_to "All events", events_path %> <br>
+    <%= link_to "All events", user_events_path(current_user) %> <br>
     <%= link_to "Create a new Event", new_user_event_path(current_user) %> <br>
   </div>
 <hr>
