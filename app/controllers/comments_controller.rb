@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController 
+  skip_before_action :verified_user, only: [:create]
   def create
+    #binding.pry
     comment = Comment.create(comment_params)
     #binding.pry
     redirect_to comment.event

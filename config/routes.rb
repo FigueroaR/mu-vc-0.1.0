@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :events, only: [:new, :edit, :index]
   end 
   get '/myevents', to: "events#myindex", as: 'myindex'
-  resources :events, only: [:show, :create, :update ]
+  resources :events, only: [:show, :create, :update, :index ]
 
   delete '/event/:id', to: 'events#destroy'
   get '/event/:id', to: 'events#destroy', as: 'delete_event'

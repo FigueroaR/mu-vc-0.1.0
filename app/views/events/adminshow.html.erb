@@ -1,6 +1,6 @@
 <%= render 'show' %>
 <div>
-  <button type="button" class="btn btn-primary"><%= link_to "All Events", events_path %></button> |
+  <button type="button" class="btn btn-primary"><%= link_to "All Events", user_events_path(current_user) %></button> |
   <button type="button" class="btn btn-primary"><%= link_to "Edit", edit_user_event_url(@event), method: "patch" %></button> |
   <button type="button" class="btn btn-primary"><%= link_to "Delete", delete_event_path, method: "delete" %></button> | 
 </div> 

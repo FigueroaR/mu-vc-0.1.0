@@ -6,7 +6,8 @@
       Country: <%= @event.country %><br>
       Date: <%= @event.start_day.strftime("%Y, %B %d")%><br>
       Time: <%= @event.start_time.strftime("%I %m %p")%><br>
-      Info: <%= @event.content%>
+      Info: <%= @event.content%><br>
+      Host: <%= link_to @event.admin_name, user_path(@event.admin) %>
     </p>
   </div>
 <br>
@@ -25,7 +26,7 @@
       <%= f.hidden_field :event_id, value: @event.id %>
       <%= f.hidden_field :created_at, value: Time.now %>
       <%= f.label "Rsvp:"%> <br>
-      <%= f.collection_select :user_id, User.all , :id, :name, include_blank: "Choose Your Username" %><br><br>
+      <%= f.hidden_field :user_id, value: current_user.id %><br><br>
       <%= f.submit %>
   <% end %>
 </div>
@@ -35,7 +36,6 @@
 <div>
   <h3>Comments:</h3>
   <% @comments.each do |comment| %>
-      <%#= binding.pry %>
       <%= comment.user.name %>:
       <%= comment.content %><br>
   <% end %>
@@ -46,9 +46,11 @@
       <%= f.hidden_field :event_id, value: @event.id %>
       <%= f.label "Leave a comment:"%><br>
       <%= f.text_area :content %><br>
-      <%= f.collection_select :user_id, User.all, :id, :name, include_blank: "Choose Your Username" %><br><br>
-          <button type="button" class="btn btn-primary"><%= f.submit %></button>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+      <br><br>
+      <button type="button" class="btn btn-primary"><%= f.submit %></button>
   <% end %>
 </div><br>
 <hr>
 
+<%#= binding.pry %>
