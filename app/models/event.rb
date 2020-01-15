@@ -16,6 +16,7 @@ class Event < ApplicationRecord
   scope :upcoming_events, -> (time) {where( "start_day > ?", time)}
   scope :previous_events, -> (time) {where( "start_day < ?", time)}
   scope :my_events, -> (id) {where( "admin == ?", id)}
+  
 
   def user_attributes=(user_attributes)
     #binding.pry

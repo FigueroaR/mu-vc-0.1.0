@@ -7,11 +7,15 @@
 </div>
 <h1 align="center"> <%=  @user.name %></h1>
 <hr>
-<div>
-  <h3>Rsvps</h3>
-  <% @user.rsvps.each do |r| %>
-    <%#= binding.pry %>
-    <li> <%=r.event.start_day.strftime("%Y, %B %d")%>,      <%= link_to r.event.name, event_path(r.event)%></li>
-  <% end %>
-</div>
+<p>
+  <h3>Upcoming Rsvps</h3>
+    <% @coming.all.each do |e| %>
+      <li><%= link_to e.name, event_path(e)%><br></li>
+    <%end%>
+    
+  <h3>Past Rsvps</h3>
+    <% @past.all.each do |e| %>
+      <li><%= link_to e.name, event_path(e)%><br></li>
+    <%end%>
+</p>
 

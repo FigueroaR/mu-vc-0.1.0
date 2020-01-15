@@ -21,8 +21,10 @@ class UsersController < ApplicationController
   end 
 
   def show
-    #binding.pry
+    binding.pry
     @user = User.find_by(id: params[:id])
+    @past = @user.events.previous_events(Time.zone.now)
+    @coming = @user.events.upcoming_events(Time.zone.now)
     if @user.id == current_user.id 
       render 'show'
     else
