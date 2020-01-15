@@ -1,5 +1,9 @@
-<h1>My index</h1>
-<h3>test</h3>
+<h1 align="center"> My Events </h1><br>
+
+<%= render "indexheader" %>
+
+<p>
   <% @my.each do |m| %> 
-    <%= m.name %>
+    <li><%= link_to m.name, event_path(m) %><br></li>
   <% end %>
+</p>

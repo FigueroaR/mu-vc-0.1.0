@@ -1,0 +1,10 @@
+
+
+<br>
+  <hr>
+  <%= link_to 'Add event', new_user_event_path(current_user) %> | 
+  <%= link_to "My events", myindex_path %> |
+  <%= link_to "All events", user_events_path(current_user) %> | 
+  <%= link_to 'My home', user_path(current_user) %>
+  <hr>
+<br>

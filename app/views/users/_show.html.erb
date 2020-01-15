@@ -15,10 +15,3 @@
   <% end %>
 </div>
 
-<div>
-  <h3>My events</h3>
-  <% @user.events.each do |e| %>
-    
-    <li> <%=e.start_day.strftime("%Y, %B %d")%>,      <%= link_to e.name, event_path(e)%></li>
-  <% end %>
-</div>

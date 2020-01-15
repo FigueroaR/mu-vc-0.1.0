@@ -2,13 +2,13 @@ class EventsController < ApplicationController
   skip_before_action :verified_user, only: [:new, :create, :edit]
   def index 
     #binding.pry
-    #Scoped events <- methods are in models, they need the current time as an argument
+    #Scoped events <- methods are in event model, they need the current time as an argument
     @past = Event.previous_events(Time.zone.now)
     @coming = Event.upcoming_events(Time.zone.now)
-
-  
   end
+
   def myindex
+    #Scoped events <- methods are in events model, they need the current_user as an argument
     @my = Event.my_events(current_user)
     render "myindex"
   end
@@ -29,7 +29,7 @@ class EventsController < ApplicationController
   end 
 
   def show 
-    #binding.pry
+    binding.pry
     @event = Event.find_by(id: params[:id])
     #rsvp
     @rsvp = @event.rsvps.build

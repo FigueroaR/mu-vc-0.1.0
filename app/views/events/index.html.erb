@@ -1,12 +1,7 @@
 <h1 align="center"> Events </h1><br>
 
-  <br>
-  <hr>
-  <%= link_to 'Add event', new_user_event_path(current_user) %> | 
-  <%= link_to 'My home', user_path(current_user) %>
+<%= render "indexheader" %>
 
-  <hr>
-  <br>
 <p>
   <h3>Upcoming Events</h3>
     <% @coming.all.each do |e| %>
@@ -17,7 +12,4 @@
     <% @past.all.each do |e| %>
       <li><%= link_to e.name, event_path(e)%><br></li>
     <%end%>
-
-
-  
 </p>

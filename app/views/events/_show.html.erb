@@ -11,6 +11,7 @@
   </div>
 <br>
 <hr>
+
 <div>
     <h3>Attending</h3>
     <% @attending.each do |r| %>
@@ -19,6 +20,7 @@
     <%end%> 
 </div><br><br>
 <div>
+
   <%= form_for @rsvp do |f| %>
       <%= f.hidden_field :event_id, value: @event.id %>
       <%= f.hidden_field :created_at, value: Time.now %>
@@ -27,7 +29,9 @@
       <%= f.submit %>
   <% end %>
 </div>
+
 <hr>
+
 <div>
   <h3>Comments:</h3>
   <% @comments.each do |comment| %>
@@ -35,8 +39,8 @@
       <%= comment.user.name %>:
       <%= comment.content %><br>
   <% end %>
-</div>
-<br><br>
+</div><br><br>
+
 <div>
   <%= form_for @comment do |f| %>
       <%= f.hidden_field :event_id, value: @event.id %>

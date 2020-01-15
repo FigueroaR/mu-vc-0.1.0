@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'welcome#home'
-  resources :comments
   resources :rsvps
+  resources :comments
   resources :users do 
     resources :events, only: [:new, :edit, :index]
   end 
-  get '/events/myevents', to: "events#myindex", as: 'myindex'
+  get '/myevents', to: "events#myindex", as: 'myindex'
   resources :events, only: [:show, :create, :update ]
 
   delete '/event/:id', to: 'events#destroy'
