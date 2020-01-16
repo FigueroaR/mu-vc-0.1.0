@@ -8,7 +8,7 @@ class EventsController < ApplicationController
   end
 
   def myindex
-    #Scoped events <- methods are in events model, they need the current_user as an argument
+    #Scoped events <- methods are in event model, they need the current_user as an argument
     @my = Event.my_events(current_user)
     render "myindex"
   end

@@ -93,3 +93,30 @@ div {
   border-spacing: 2px;
   border-color: gray;
 }
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media screen and (max-width: 600px) {
+  .wrapper {
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    width: auto;
+  }
+
+  .content, .sidebar {
+    float: none;
+    width: 100%;
+  }
+
+  .sidebar {
+    background: transparent;
+    border: none;
+    border-top: 2px solid #ccc;
+    padding: 0;
+  }
+
+}
