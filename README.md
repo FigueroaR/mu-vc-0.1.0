@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
 
-* Ruby version
+* Clone in terminal 
 
-* System dependencies
+* In terminal type and enter "bundle install" or "bundle"
 
-* Configuration
+* Launch local sever in terminal with "Rails s" 
 
-* Database creation
+* In your browser go to "http://localhost:3000/"
 
-* Database initialization
+* You are all set! 
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Rails 6.0
