@@ -48,7 +48,6 @@ ActiveRecord::Schema.define(version: 2020_01_15_194028) do
     t.string "content"
     t.datetime "start_time"
     t.datetime "start_day"
-    t.integer "admin"
     t.string "admin_name"
   end
 
