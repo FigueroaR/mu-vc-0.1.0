@@ -6,8 +6,12 @@
   <h1 align="center">Welcome to Meetup! </h1>
 </div> 
 <hr>
+
 <div align="center">
+  <p>
   <strong><%= link_to 'Sign In', signin_path %></strong> | 
   <strong><%= link_to('Log in with Facebook!', '/auth/facebook') %></strong> |
+  <strong><%#= button_to 'Sign in via Facebook!', '/auth/facebook' %></strong>
   <strong><%= link_to 'Create User', new_user_path  %></strong><br>
+  </p>
 </div>
