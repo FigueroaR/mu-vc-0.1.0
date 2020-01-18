@@ -30,6 +30,7 @@ class EventsController < ApplicationController
 
   def show 
     #binding.pry
+
     @event = Event.find_by(id: params[:id])
     #rsvp
     @rsvp = @event.rsvps.build
@@ -46,7 +47,7 @@ class EventsController < ApplicationController
   end
 
   def edit 
-    @event = Event.find_by(id: params[:id])
+    @event = current_user.events.find_by(id: params[:id])
     if @event.admin == current_user.id
       render 'edit'
     else
@@ -55,16 +56,23 @@ class EventsController < ApplicationController
   end 
 
   def update 
-    @event = Event.find_by(id: params[:id])
+    
+    @event = current_user.events.find_by(id: params[:id])
     @event.update(event_params)
+    binding.pry
+
     redirect_to event_path(@event)
   end
 
   def destroy
-    @event = Event.find_by(id: params[:id])
-    @event.destroy 
-    redirect_to events_path
+    @event = current_user.events.find_by(id: params[:id])
+    if @event.admin == current_user.id
+      @event.destroy 
+    else
+      redirect_to events_path
+    end
   end
+    
 
   private 
 

@@ -23,8 +23,7 @@ class UsersController < ApplicationController
   def show
     #binding.pry
     @user = User.find_by(id: params[:id])
-    @past = @user.events.previous_events(Time.zone.now)
-    @coming = @user.events.upcoming_events(Time.zone.now)
+    
     if @user.id == current_user.id 
       render 'show'
     else
@@ -43,14 +42,16 @@ class UsersController < ApplicationController
   end 
 
   def update 
-    @user = User.find_by(id: params[:id])
-    @user.update(user_params)
-    render 'show'
+    #binding.pry
+    #@user = User.find_by(id: params[:id])
+    current_user.update(user_params)
+    #current_user.update(email: params[:user][:email]) unless params[:user][:email] = nil
+    redirect_to user_path(current_user)
   end
 
   private 
 
   def user_params
-    params.require(:user).permit(:name, :email, :photo, :password)
+    params.require(:user).permit(:name, :email, :photo, :password, :image)
   end 
 end 

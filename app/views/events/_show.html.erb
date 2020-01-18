@@ -10,7 +10,7 @@
       City: <%= @event.city%><br>
       Country: <%= @event.country %><br>
       Date: <%= @event.start_day.strftime("%Y, %B %d")%><br>
-      Time: <%= @event.start_time.strftime("%I %m %p")%><br>
+      Time: <%= @event.start_time.strftime("%I %M %P")%><br>
       Info: <%= @event.content%><br>
       Host: <%= link_to @event.admin_name, user_path(@event.admin) %>
     </p>
