@@ -43,10 +43,13 @@ class UsersController < ApplicationController
 
   def update 
     #binding.pry
-    #@user = User.find_by(id: params[:id])
-    current_user.update(user_params)
+    @user = User.find_by(id: params[:id])
+    if current_user.update(user_params)
     #current_user.update(email: params[:user][:email]) unless params[:user][:email] = nil
-    redirect_to user_path(current_user)
+      redirect_to user_path(current_user)
+    else 
+      render 'edit'
+    end
   end
 
   private 
