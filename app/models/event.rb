@@ -20,9 +20,9 @@ class Event < ApplicationRecord
   scope :my_events, -> (id) {where( "admin == ?", id)}
   
 
-  def user_attributes=(user_attributes)
+  #def user_attributes=(user_attributes)
     #binding.pry
-    self.user = User.find_or_create_by(name: user_attributes[:name]) unless user_attributes[:name].blank?
-  end
+    #self.user = User.find_or_create_by(name: user_attributes[:name]) unless user_attributes[:name].blank?
+  #end
 
 end

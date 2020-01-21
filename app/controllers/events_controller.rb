@@ -14,7 +14,11 @@ class EventsController < ApplicationController
   end
 
   def new 
-    @event = current_user.events.build
+    #if current_user = true
+      @event = current_user.events.build
+    #else
+      #redirect_to events_path
+    #end
   end 
 
   def create 

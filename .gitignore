@@ -28,5 +28,5 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
-#my key
-.env
+#my key is freely available for fun and learning
+##.env

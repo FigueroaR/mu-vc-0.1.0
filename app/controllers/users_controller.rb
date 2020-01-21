@@ -32,7 +32,7 @@ class UsersController < ApplicationController
   end 
 
   def edit 
-
+    
     @user = User.find_by(id: params[:id])
     if @user.id == current_user.id 
       render 'edit'
