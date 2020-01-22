@@ -15,3 +15,5 @@
 * You are all set! 
 
 * Rails 6.0
+
+* Video: https://youtu.be/SPV0luB8WG0
