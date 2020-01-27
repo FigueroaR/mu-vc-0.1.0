@@ -4,8 +4,8 @@ class Rsvp < ApplicationRecord
   belongs_to :event
 
   #validation
-  validates :event_id, presence: :true
-  validates :user_id, presence: true
+  validates :created_at, presence: :true
+  
   #scope
   #scope :upcoming_rsvps, -> (time) {where( "start_day > ?", time)}
   #scope :previous_rsvps, -> (time) {where( "start_day < ?", time)}

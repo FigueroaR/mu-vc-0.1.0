@@ -11,13 +11,14 @@ class Event < ApplicationRecord
   has_many :users, through: :rsvps
 
   has_many :comments
-
+  
   has_one_attached :photo
 
   #scopes 
-  scope :upcoming_events, -> (time) {where( "start_day > ?", time)}
-  scope :previous_events, -> (time) {where( "start_day < ?", time)}
-  scope :my_events, -> (id) {where( "admin == ?", id)}
+  scope :upcoming_events, -> {where( "start_day > ?", Time.zone.now)} #Time.now
+  scope :previous_events, -> {where( "start_day < ?", Time.zone.now)}
+  scope :my_events, -> (id) {where( "admin == ?", id)} #current_user.id
+  
   
 
   #def user_attributes=(user_attributes)

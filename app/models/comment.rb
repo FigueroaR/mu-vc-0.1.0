@@ -5,8 +5,6 @@ class Comment < ApplicationRecord
 
   #validation
   validates :content, presence: :true
-  validates :event_id, presence: :true
-  validates :user_id, presence: true
   
   #def user_attributes=(user_attributes)
     #binding.pry

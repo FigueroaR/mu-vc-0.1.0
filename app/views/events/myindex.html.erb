@@ -3,7 +3,13 @@
 <%= render "indexheader" %>
 
 <p>
-  <% @my.each do |m| %> 
+  <h3>Upcoming Events</h3>
+  <% @myupcoming.each do |m| %> 
+    <li><%= link_to m.name, event_path(m) %><br></li>
+  <% end %>
+
+  <h3>Past Events</h3>
+  <% @mypast.each do |m| %> 
     <li><%= link_to m.name, event_path(m) %><br></li>
   <% end %>
 </p>

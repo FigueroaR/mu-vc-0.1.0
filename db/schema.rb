@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2020_01_12_070059) do
     t.datetime "start_time"
     t.datetime "start_day"
     t.string "admin_name"
-    t.integer "admin" ##:user_id
+    t.integer "admin" #user_id
   end
 
   create_table "rsvps", force: :cascade do |t|

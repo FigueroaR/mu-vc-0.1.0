@@ -1,17 +1,17 @@
 
 <div align="center">
   <%#=binding.pry%>
-  <img  style='width: 500px' src="<%=@user.image unless @user.image = nil %>"> 
+  <img  style="width: 500px" src="<%=@user.image unless @user.image == nil? %>"> 
   <div>
-
     <%= image_tag(@user.photo) if @user.photo.attached? %>
   </div>
 </div>
+
 <h1 align="center"> <%=  @user.name %></h1>
 <hr>
 <p>
-  <% @past = @user.events.previous_events(Time.zone.now) unless @coming == nil? %>
-  <% @coming = @user.events.upcoming_events(Time.zone.now) unless @coming == nil? %>
+  <% @past = @user.events.previous_events unless @coming == nil? %>
+  <% @coming = @user.events.upcoming_events unless @coming == nil? %>
   <h3>Upcoming Rsvps</h3>
     <%#=binding.pry%>
     <% @coming.each do |e| %>
