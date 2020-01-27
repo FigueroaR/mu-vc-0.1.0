@@ -1,2 +1,7 @@
 <%= render 'show' %><br><br>
 <hr>
+<div>
+  <%#= binding.pry %>
+  <%= link_to 'This Users Events', user_events_path(@user) %> <br>
+  <%= link_to "All Events", events_path(current_user) %> <br>
+</div>

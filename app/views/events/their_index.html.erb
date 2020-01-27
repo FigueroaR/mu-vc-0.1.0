@@ -1,0 +1,15 @@
+<h1 align="center"> <%=@user.name%>'s Events </h1><br>
+
+<%= render "indexheader" %>
+
+<p>
+  <h3>Upcoming Events</h3>
+  <% @myupcoming.all.each do |m| %> 
+    <li><%= link_to m.name, event_path(m) %><br></li>
+  <% end %>
+
+  <h3>Past Events</h3>
+  <% @mypast.all.each do |m| %> 
+    <li><%= link_to m.name, event_path(m) %><br></li>
+  <% end %>
+</p>
