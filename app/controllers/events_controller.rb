@@ -3,30 +3,19 @@ class EventsController < ApplicationController
 
   def index 
     #Scoped events <- methods are in event model, they need the current time as an argument
+    @title = "Events "
+    @user = User.find_by(id: params[:user_id])
     @past = Event.previous_events
     @coming = Event.upcoming_events
     #binding.pry
-    if params[:user_id] == current_user.id 
-      #Scoped events <- methods are in event model, they need the current_user as an argument
-      @myupcoming = Event.my_events(current_user).upcoming_events
-      @mypast = Event.my_events(current_user).previous_events
-      render "myindex"
-      #redirect_to myindex_path
-    elsif params[:user_id] 
-      @user = User.find_by(id: params[:user_id])
-      @myupcoming = @user.events.upcoming_events # <----scoped events
-      @mypast = @user.events.previous_events
-      render 'their_index'
+    if @user
+      @title = "#{@user.name}'s Events"
+      #Scoped events <--
+      @coming = @user.events.upcoming_events
+      @past = @user.events.previous_events
     end
-
   end
-  
-
-  def myindex
-    
-    
-  end
-
+ 
   def new 
     #if current_user = true
       @event = current_user.events.build
