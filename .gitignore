@@ -29,4 +29,4 @@
 /config/master.key
 
 #my key is freely available for fun and learning
-.env
+##.env
